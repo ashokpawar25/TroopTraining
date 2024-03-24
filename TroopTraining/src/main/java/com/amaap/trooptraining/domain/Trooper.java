@@ -1,13 +1,19 @@
 package com.amaap.trooptraining.domain;
 
+import com.amaap.trooptraining.domain.exceptions.InvalidTrainingCostException;
+import com.amaap.trooptraining.domain.exceptions.InvalideTrainingTimeException;
+import com.amaap.trooptraining.domain.validators.TrainingCostValidator;
+import com.amaap.trooptraining.domain.validators.TrainingTimeValidator;
+import com.amaap.trooptraining.domain.validators.TrainingTimeValidator;
+
 import java.util.Objects;
 
 public class Trooper
 {
 
-    int trainingTime;
-    int trainingCost;
-    Weapon weapon;
+    private final int trainingTime;
+    private final int trainingCost;
+    private final Weapon weapon;
     public Trooper(int time, int cost, Weapon weapon)
     {
         this.trainingTime = time;
@@ -15,8 +21,9 @@ public class Trooper
         this.weapon = weapon;
     }
 
-    public static Trooper Create(int time, int cost, Weapon weapon)
-    {
+    public static Trooper Create(int time, int cost, Weapon weapon) throws InvalideTrainingTimeException, InvalidTrainingCostException {
+        if(!TrainingTimeValidator.validateTime(time)) throw new InvalideTrainingTimeException("Invalide training time check it once");
+        if(!TrainingCostValidator.validateCost(cost)) throw new InvalidTrainingCostException("Cost is invalide");
         return new Trooper(time,cost,weapon);
     }
 

@@ -55,4 +55,28 @@ public class TrainTrooperTest {
         //Assert
         Assertions.assertEquals(4, trainedTroopers.size());
     }
+
+    @Test
+    void shouldAbleToGetCountOfArcherAndBarbarianWhoCompletedTrainingAndPresentInArmyCamp() throws InterruptedException, BarrackOverFlowException, InvalideTrainingTimeException, InvalidTrainingCostException {
+        //Arrange
+        Trooper trooper1 = new Archer();
+        Trooper trooper2 = new Barbarian();
+        Trooper trooper3 = new Archer();
+        Trooper trooper4 = new Barbarian();
+        List<Trooper> troopers = List.of(trooper1, trooper2, trooper3, trooper4);
+        ArmyCamp armyCamp = new ArmyCamp();
+        Barrack barrack = new Barrack(10);
+        TrainTrooper trainTrooper = new TrainTrooper(barrack, armyCamp);
+
+        //Act
+        barrack.addTrooper(troopers);
+        trainTrooper.trainTroopers();
+
+        int archerCount = armyCamp.getArcherCount();
+        int barbarianCount = armyCamp.getBarbarianCount();
+
+        //Assert
+        Assertions.assertEquals(2, archerCount);
+        Assertions.assertEquals(2, barbarianCount);
+    }
 }

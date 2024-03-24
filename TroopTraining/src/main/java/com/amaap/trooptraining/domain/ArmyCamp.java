@@ -1,7 +1,4 @@
-package com.amaap.trooptraining.domain.service;
-
-import com.amaap.trooptraining.domain.Trooper;
-
+package com.amaap.trooptraining.domain;
 import java.util.ArrayList;
 import java.util.List;
 

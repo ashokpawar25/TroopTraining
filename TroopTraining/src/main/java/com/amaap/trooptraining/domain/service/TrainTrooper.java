@@ -6,9 +6,11 @@ import com.amaap.trooptraining.domain.Trooper;
 public class TrainTrooper
 {
     Barrack barrack;
-    public TrainTrooper(Barrack barrack)
+    ArmyCamp armyCamp;
+    public TrainTrooper(Barrack barrack, ArmyCamp armyCamp)
     {
         this.barrack = barrack;
+        this.armyCamp = armyCamp;
     }
 
     public boolean trainTroopers() throws InterruptedException {
@@ -17,6 +19,7 @@ public class TrainTrooper
         {
             Thread.sleep(trooper.getTrainingTime()*1000);
             System.out.println("Trained");
+            armyCamp.addTrooper(trooper);
         }
         return  true;
     }

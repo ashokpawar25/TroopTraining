@@ -1,4 +1,4 @@
-package com.amaap.trooptraining.domain;
+package com.amaap.trooptraining.domain.model;
 
 public enum Weapon {
     BowAndArrow, Sword

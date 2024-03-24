@@ -1,5 +1,7 @@
 package com.amaap.trooptraining.domain;
 
+import com.amaap.trooptraining.domain.exceptions.BarrackOverFlowException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,9 +15,12 @@ public class Barrack
         this.maxCapacity = maxCapacity;
     }
 
-    public void addTrooper(Trooper trooper)
-    {
-        trooperList.add(trooper);
+    public void addTrooper(List<Trooper> troopers) throws BarrackOverFlowException {
+        for (Trooper trooper:troopers)
+        {
+            if(trooperList.size() == maxCapacity) throw new BarrackOverFlowException("You can't add troopers more than barrack size");
+            trooperList.add(trooper);
+        }
     }
 
     public List<Trooper> getTrooperList()

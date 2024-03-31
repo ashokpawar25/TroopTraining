@@ -24,17 +24,12 @@ public class Trooper
         this.weapon = weapon;
     }
 
-
     public int getTrainingTime() {
         return trainingTime;
     }
 
     public int getTrainingCost() {
         return trainingCost;
-    }
-
-    public Weapon getWeapon() {
-        return weapon;
     }
 
     @Override
@@ -45,8 +40,8 @@ public class Trooper
         return trainingTime == trooper.trainingTime && trainingCost == trooper.trainingCost && weapon == trooper.weapon;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(trainingTime, trainingCost, weapon);
-    }
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(trainingTime, trainingCost, weapon);
+//    }
 }

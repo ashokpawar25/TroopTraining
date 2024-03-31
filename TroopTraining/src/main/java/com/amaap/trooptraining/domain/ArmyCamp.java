@@ -2,26 +2,25 @@ package com.amaap.trooptraining.domain;
 import com.amaap.trooptraining.domain.model.Archer;
 import com.amaap.trooptraining.domain.model.Barbarian;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class ArmyCamp
 {
-    private List<Trooper> trainedTroopers;
+    private final Queue<Trooper> trainedTroopers;
 
     public ArmyCamp()
     {
-        trainedTroopers = new ArrayList<>();
+        trainedTroopers = new LinkedList<>();
     }
-    public List<Trooper> getTrooperList()
+    public Queue<Trooper> getTrooperList()
     {
         return trainedTroopers;
     }
 
-    public boolean addTrooper(Trooper trooper)
+    public void addTrooper(Trooper trooper)
     {
         trainedTroopers.add(trooper);
-        return true;
     }
 
     public int getArcherCount()

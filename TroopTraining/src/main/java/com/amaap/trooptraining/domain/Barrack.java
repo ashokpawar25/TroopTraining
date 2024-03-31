@@ -1,11 +1,9 @@
 package com.amaap.trooptraining.domain;
 
-import com.amaap.trooptraining.domain.exceptions.BarrackOverFlowException;
-import com.amaap.trooptraining.domain.exceptions.InvalidTrooperQueueException;
+import com.amaap.trooptraining.domain.exception.BarrackOverFlowException;
+import com.amaap.trooptraining.domain.exception.InvalidTrooperQueueException;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 public class Barrack
@@ -19,7 +17,7 @@ public class Barrack
     }
 
     public void addTrooper(Queue<Trooper> troopers) throws BarrackOverFlowException, InvalidTrooperQueueException {
-        if(troopers.size()>10) throw new BarrackOverFlowException("Barrack can have maximum 10 troopers");
+        if(troopers.size()>maxCapacity) throw new BarrackOverFlowException("Barrack can have maximum 10 troopers");
         if(troopers.size()<= 0) throw new InvalidTrooperQueueException("Queue should have at least one trooper");
         trooperQueue.addAll(troopers);
     }

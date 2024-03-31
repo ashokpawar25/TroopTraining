@@ -1,7 +1,7 @@
 package com.amaap.trooptraining.domain;
 
 import com.amaap.trooptraining.TrooperBuilder;
-import com.amaap.trooptraining.domain.exceptions.*;
+import com.amaap.trooptraining.domain.exception.*;
 import com.amaap.trooptraining.domain.model.Archer;
 import org.junit.jupiter.api.Test;
 
@@ -23,6 +23,7 @@ public class BarrackTest {
         List<Trooper> troopers = List.of(trooper);
         Queue<Trooper> trooperQueue = new LinkedList<>();
         trooperQueue.addAll(troopers);
+
         // act
         Barrack barrack = new Barrack(10);
         barrack.addTrooper(trooperQueue);
@@ -36,6 +37,7 @@ public class BarrackTest {
     void shouldBeAbleToThrowExceptionWhenEmptyQueueIsPassed() {
         // arrange
         Queue<Trooper> trooperQueue = new LinkedList<>();
+
         // act
         Barrack barrack = new Barrack(10);
 

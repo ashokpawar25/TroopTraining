@@ -1,4 +1,4 @@
-package com.amaap.trooptraining.domain.validators;
+package com.amaap.trooptraining.domain.validator;
 
 public class TrainingTimeValidator {
 

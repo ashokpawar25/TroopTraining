@@ -1,13 +1,11 @@
 package com.amaap.trooptraining.domain;
 
-import com.amaap.trooptraining.domain.exceptions.InvalidTrainingCostException;
-import com.amaap.trooptraining.domain.exceptions.InvalidTrainingTimeException;
-import com.amaap.trooptraining.domain.exceptions.InvalidTrooperPropertiesException;
+import com.amaap.trooptraining.domain.exception.InvalidTrainingCostException;
+import com.amaap.trooptraining.domain.exception.InvalidTrainingTimeException;
+import com.amaap.trooptraining.domain.exception.InvalidTrooperPropertiesException;
 import com.amaap.trooptraining.domain.model.Weapon;
-import com.amaap.trooptraining.domain.validators.TrainingCostValidator;
-import com.amaap.trooptraining.domain.validators.TrainingTimeValidator;
-
-import java.util.Objects;
+import com.amaap.trooptraining.domain.validator.TrainingCostValidator;
+import com.amaap.trooptraining.domain.validator.TrainingTimeValidator;
 
 public class Trooper
 {
@@ -44,9 +42,4 @@ public class Trooper
     {
         return weapon;
     }
-
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(trainingTime, trainingCost, weapon);
-//    }
 }

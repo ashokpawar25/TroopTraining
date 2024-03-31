@@ -1,9 +1,9 @@
 package com.amaap.trooptraining.domain.model;
 
 import com.amaap.trooptraining.domain.Trooper;
-import com.amaap.trooptraining.domain.exceptions.InvalidTrainingCostException;
-import com.amaap.trooptraining.domain.exceptions.InvalidTrainingTimeException;
-import com.amaap.trooptraining.domain.exceptions.InvalidTrooperPropertiesException;
+import com.amaap.trooptraining.domain.exception.InvalidTrainingCostException;
+import com.amaap.trooptraining.domain.exception.InvalidTrainingTimeException;
+import com.amaap.trooptraining.domain.exception.InvalidTrooperPropertiesException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

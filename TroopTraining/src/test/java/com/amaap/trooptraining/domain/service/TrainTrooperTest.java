@@ -4,13 +4,12 @@ import com.amaap.trooptraining.TrooperBuilder;
 import com.amaap.trooptraining.domain.ArmyCamp;
 import com.amaap.trooptraining.domain.Barrack;
 import com.amaap.trooptraining.domain.Trooper;
-import com.amaap.trooptraining.domain.exceptions.*;
+import com.amaap.trooptraining.domain.exception.*;
 import com.amaap.trooptraining.domain.model.Archer;
 import com.amaap.trooptraining.domain.model.Barbarian;
 import org.junit.jupiter.api.Test;
 
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

@@ -1,33 +1,30 @@
 package com.amaap.trooptraining.validator;
 
-import com.amaap.trooptraining.domain.validators.TrainingTimeValidator;
-import com.sun.source.tree.AssertTree;
-import com.sun.source.tree.BreakTree;
+import com.amaap.trooptraining.domain.validator.TrainingTimeValidator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.beans.Transient;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TrainingTimeValidatorTest {
-    //TrainingTimeValidator trainingTimeValidator = new TrainingTimeValidator();
-
     @Test
-    void checkTimeIsZero() {
-        //Arrange
+    void shouldBeAbleToCheckTrainingTimeIsZeroOrNot() {
+        // arrange
         int time = 0;
 
-        //Act
+        // act
         boolean result = TrainingTimeValidator.isTimeEqualToZero(time);
 
-        //Assert
-        Assertions.assertTrue(result);
+        // assert
+        assertTrue(result);
     }
 
     @Test
-    void shouldAbleToValidateCorrectTrainingTime() {
-        //Assert
-        Assertions.assertFalse(TrainingTimeValidator.validateTime(0));
-        Assertions.assertTrue(TrainingTimeValidator.validateTime(3));
-        Assertions.assertTrue(TrainingTimeValidator.validateTime(6));
+    void shouldBeAbleToValidateTrainingTime() {
+        // assert
+        assertFalse(!TrainingTimeValidator.validateTime(0));
+        assertTrue(!TrainingTimeValidator.validateTime(3));
+        assertTrue(!TrainingTimeValidator.validateTime(6));
     }
 }

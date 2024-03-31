@@ -1,27 +1,30 @@
 package com.amaap.trooptraining.validator;
 
-import com.amaap.trooptraining.domain.validators.TrainingCostValidator;
+import com.amaap.trooptraining.domain.validator.TrainingCostValidator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TrainingCostValidatorTest {
     @Test
     void validateTimeEqualToZero() {
-        //Arrange
+        // arrange
         int time = 0;
 
-        //Act
+        // act
         boolean result = TrainingCostValidator.isCostZero(time);
 
-        //Assert
-        Assertions.assertTrue(result);
+        // assert
+        assertTrue(result);
     }
 
     @Test
     void shouldCheckValidCost() {
-        //Assert
-        Assertions.assertFalse(TrainingCostValidator.validateCost(0));
-        Assertions.assertTrue(TrainingCostValidator.validateCost(10));
-        Assertions.assertTrue(TrainingCostValidator.validateCost(20));
+        // assert
+        assertFalse(!TrainingCostValidator.validateCost(0));
+        assertTrue(!TrainingCostValidator.validateCost(10));
+        assertTrue(!TrainingCostValidator.validateCost(20));
     }
 }

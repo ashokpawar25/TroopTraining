@@ -1,15 +1,14 @@
 package com.amaap.trooptraining.domain;
 
-import com.amaap.trooptraining.domain.exceptions.InvalidTrainingCostException;
-import com.amaap.trooptraining.domain.exceptions.InvalidTrainingTimeException;
-import com.amaap.trooptraining.domain.exceptions.InvalidTrooperPropertiesException;
+import com.amaap.trooptraining.domain.exception.InvalidTrainingCostException;
+import com.amaap.trooptraining.domain.exception.InvalidTrainingTimeException;
+import com.amaap.trooptraining.domain.exception.InvalidTrooperPropertiesException;
 import com.amaap.trooptraining.domain.model.Archer;
 import com.amaap.trooptraining.domain.model.Barbarian;
 import com.amaap.trooptraining.domain.model.Weapon;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class TrooperTest {
@@ -72,6 +71,27 @@ public class TrooperTest {
 
         // act & assert
         assertThrows(InvalidTrooperPropertiesException.class, () -> new Trooper(trainingTime, trainingCost, weapon));
+
+    }
+
+    @Test
+    void shouldBeAbleToValidateEqualObjects() throws InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperPropertiesException {
+        // arrange
+        Trooper trooper1 = new Trooper(3,10,Weapon.Sword);
+        Trooper trooper2 = new Trooper(3,10,Weapon.Sword);
+
+        // assert
+        assertEquals(trooper1,trooper2);
+    }
+
+    @Test
+    void shouldAbleToValidateNotEqualObjects() throws InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperPropertiesException {
+        // arrange
+        Trooper trooper1 = new Trooper(3,10,Weapon.Sword);
+//        Trooper trooper2 = new Trooper(6,20,Weapon.BowAndArrow);
+
+        // assert
+        assertNotEquals(trooper1,null);
 
     }
 }

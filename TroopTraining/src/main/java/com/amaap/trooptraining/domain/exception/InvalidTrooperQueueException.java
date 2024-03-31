@@ -1,4 +1,4 @@
-package com.amaap.trooptraining.domain.exceptions;
+package com.amaap.trooptraining.domain.exception;
 
 public class InvalidTrooperQueueException extends Throwable {
     public InvalidTrooperQueueException(String message)

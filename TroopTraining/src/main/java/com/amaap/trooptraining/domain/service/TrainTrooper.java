@@ -20,14 +20,14 @@ public class TrainTrooper
 
     public boolean trainTroopers() throws InterruptedException {
         Queue<Trooper> allTroopers = barrack.getTrooperList();
-        for(Trooper trooper:allTroopers)
+        while (!allTroopers.isEmpty())
         {
-            Thread.sleep(trooper.getTrainingTime()* 1000L);
+            Trooper trooper = allTroopers.poll();
+//            Thread.sleep(trooper.getTrainingTime()* 1000L);
             if(trooper instanceof Archer) System.out.println("Archer Trained");
-            if(trooper instanceof Barbarian)  System.out.println("Barbarian Trained");
+            else System.out.println("Barbarian Trained");
             armyCamp.addTrooper(trooper);
-            allTroopers.remove();
         }
-        return allTroopers.isEmpty();
+        return true;
     }
 }

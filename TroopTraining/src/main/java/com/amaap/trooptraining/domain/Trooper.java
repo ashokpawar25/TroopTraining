@@ -40,6 +40,11 @@ public class Trooper
         return trainingTime == trooper.trainingTime && trainingCost == trooper.trainingCost && weapon == trooper.weapon;
     }
 
+    public Weapon getWeapon()
+    {
+        return weapon;
+    }
+
 //    @Override
 //    public int hashCode() {
 //        return Objects.hash(trainingTime, trainingCost, weapon);

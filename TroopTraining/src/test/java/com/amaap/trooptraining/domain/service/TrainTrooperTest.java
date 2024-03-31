@@ -1,5 +1,6 @@
 package com.amaap.trooptraining.domain.service;
 
+import com.amaap.trooptraining.TrooperBuilder;
 import com.amaap.trooptraining.domain.ArmyCamp;
 import com.amaap.trooptraining.domain.Barrack;
 import com.amaap.trooptraining.domain.Trooper;
@@ -17,6 +18,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TrainTrooperTest {
 
+    TrooperBuilder trooperBuilder = new TrooperBuilder();
+
     @Test
     void shouldBeAbleToTrainArcherAndAddToArmyCamp() throws InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperPropertiesException, InvalidTrooperQueueException, BarrackOverFlowException, InterruptedException {
         // arrange
@@ -26,7 +29,6 @@ public class TrainTrooperTest {
         TrainTrooper trainTrooper = new TrainTrooper(barrack, armyCamp);
         Queue<Trooper> trooperQueue = new LinkedList<>();
         trooperQueue.add(trooper);
-
         // act
         barrack.addTrooper(trooperQueue);
         boolean isTrained = trainTrooper.trainTroopers();
@@ -59,75 +61,24 @@ public class TrainTrooperTest {
     }
 
     @Test
-    void shouldBeAbleToTrainMultipleTroopers() throws InvalidTrainingTimeException, InvalidTrainingCostException, BarrackOverFlowException, InterruptedException, InvalidTrooperPropertiesException, InvalidTrooperQueueException {
-        //Arrange
-        Trooper trooper1 = new Archer();
-        Trooper trooper2 = new Barbarian();
-        Trooper trooper3 = new Archer();
-        Trooper trooper4 = new Barbarian();
-        Queue<Trooper> troopersQueue = new LinkedList<>();
-        List<Trooper> troopersList = List.of(trooper1, trooper2, trooper3, trooper4);
-        troopersQueue.addAll(troopersList);
-
-
-        //Act
+    void shouldBeAbleToTrainMultipleTroopersAndAddToArmyCamp() throws InvalidTrainingTimeException, InvalidTrainingCostException, BarrackOverFlowException, InterruptedException, InvalidTrooperPropertiesException, InvalidTrooperQueueException {
+        // arrange
+        Queue<Trooper> troopersQueue = trooperBuilder.getTroopers();
         Barrack barrack = new Barrack(10);
-        barrack.addTrooper(troopersQueue);
         ArmyCamp armyCamp = new ArmyCamp();
         TrainTrooper trainTrooper = new TrainTrooper(barrack, armyCamp);
+
+        // act
+        barrack.addTrooper(troopersQueue);
         boolean isTrained = trainTrooper.trainTroopers();
+        int trainedArcherCount = armyCamp.getArcherCount();
+        int trainedBarbarianCount = armyCamp.getBarbarianCount();
 
-        //Assert
+        // assert
         assertTrue(isTrained);
+        assertEquals(4, trainedArcherCount);
+        assertEquals(4, trainedBarbarianCount);
     }
 
-    @Test
-    void shouldAbleToSendTrooperInTheArmyCampOnceTrainingCompleted() throws InvalidTrainingTimeException, InvalidTrainingCostException, BarrackOverFlowException, InterruptedException, InvalidTrooperPropertiesException, InvalidTrooperQueueException {
-        //Arrange
-        Trooper trooper1 = new Archer();
-        Trooper trooper2 = new Barbarian();
-        Trooper trooper3 = new Archer();
-        Trooper trooper4 = new Barbarian();
-        Queue<Trooper> troopersQueue = new LinkedList<>();
-        List<Trooper> troopersList = List.of(trooper1, trooper2, trooper3, trooper4);
-        troopersQueue.addAll(troopersList);
 
-        //Act
-        Barrack barrack = new Barrack(10);
-        barrack.addTrooper(troopersQueue);
-        ArmyCamp armyCamp = new ArmyCamp();
-        TrainTrooper trainTrooper = new TrainTrooper(barrack, armyCamp);
-        trainTrooper.trainTroopers();
-
-        Queue<Trooper> trainedTroopers = armyCamp.getTrooperList();
-
-        //Assert
-        assertEquals(4, trainedTroopers.size());
-    }
-
-    @Test
-    void shouldAbleToGetCountOfArcherAndBarbarianWhoCompletedTrainingAndPresentInArmyCamp() throws InterruptedException, BarrackOverFlowException, InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperPropertiesException, InvalidTrooperQueueException {
-        //Arrange
-        Trooper trooper1 = new Archer();
-        Trooper trooper2 = new Barbarian();
-        Trooper trooper3 = new Archer();
-        Trooper trooper4 = new Barbarian();
-        Queue<Trooper> troopersQueue = new LinkedList<>();
-        List<Trooper> troopersList = List.of(trooper1, trooper2, trooper3, trooper4);
-        troopersQueue.addAll(troopersList);
-        ArmyCamp armyCamp = new ArmyCamp();
-        Barrack barrack = new Barrack(10);
-        TrainTrooper trainTrooper = new TrainTrooper(barrack, armyCamp);
-
-        //Act
-        barrack.addTrooper(troopersQueue);
-        trainTrooper.trainTroopers();
-
-        int archerCount = armyCamp.getArcherCount();
-        int barbarianCount = armyCamp.getBarbarianCount();
-
-        //Assert
-        assertEquals(2, archerCount);
-        assertEquals(2, barbarianCount);
-    }
 }

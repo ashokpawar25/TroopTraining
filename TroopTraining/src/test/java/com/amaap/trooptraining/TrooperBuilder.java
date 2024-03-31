@@ -20,7 +20,11 @@ public class TrooperBuilder
         Trooper trooper2 = new Barbarian();
         Trooper trooper3 = new Archer();
         Trooper trooper4 = new Barbarian();
-        List<Trooper> troopersList = List.of(trooper1, trooper2, trooper3, trooper4);
+        Trooper trooper5 = new Archer();
+        Trooper trooper6 = new Barbarian();
+        Trooper trooper7 = new Archer();
+        Trooper trooper8 = new Barbarian();
+        List<Trooper> troopersList = List.of(trooper1, trooper2, trooper3, trooper4,trooper5,trooper6,trooper7,trooper8);
         troopersQueue.addAll(troopersList);
         return troopersQueue;
     }
@@ -41,6 +45,6 @@ public class TrooperBuilder
         List<Trooper> troopers = List.of(trooper1, trooper2, trooper3, trooper4, trooper5, trooper6, trooper7, trooper8, trooper9, trooper10, trooper11);
         troopersQueue.addAll(troopers);
         return troopersQueue;
-
     }
+
 }

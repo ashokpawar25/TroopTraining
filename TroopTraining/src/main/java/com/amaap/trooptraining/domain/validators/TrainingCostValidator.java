@@ -7,9 +7,9 @@ public class TrainingCostValidator
     {
         if(!isCostZero(cost) && cost == 10 || cost == 20)
         {
-            return true;
+            return false;
         }
-        return false;
+        return true;
     }
 
     public static boolean isCostZero(int cost)

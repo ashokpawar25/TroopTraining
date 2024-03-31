@@ -2,9 +2,9 @@ package com.amaap.trooptraining.domain;
 
 import com.amaap.trooptraining.domain.exceptions.BarrackOverFlowException;
 import com.amaap.trooptraining.domain.exceptions.InvalidTrainingCostException;
-import com.amaap.trooptraining.domain.exceptions.InvalideTrainingTimeException;
+import com.amaap.trooptraining.domain.exceptions.InvalidTrainingTimeException;
+import com.amaap.trooptraining.domain.exceptions.InvalidTrooperPropertiesException;
 import com.amaap.trooptraining.domain.model.Archer;
-import com.amaap.trooptraining.domain.model.Weapon;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +12,7 @@ import java.util.List;
 
 public class BarrackTest {
     @Test
-    void shouldAbleToAddTrooperInBarrack() throws InvalideTrainingTimeException, InvalidTrainingCostException, BarrackOverFlowException {
+    void shouldAbleToAddTrooperInBarrack() throws InvalidTrainingTimeException, InvalidTrainingCostException, BarrackOverFlowException, InvalidTrooperPropertiesException {
         //Arrange
         Trooper trooper = new Archer();
         List<Trooper> troopers = List.of(trooper);
@@ -26,7 +26,7 @@ public class BarrackTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenBarrackSizeFull() throws InvalideTrainingTimeException, InvalidTrainingCostException {
+    void shouldThrowExceptionWhenBarrackSizeFull() throws InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperPropertiesException {
         //Arrange
         Trooper trooper1 = new Archer();
         Trooper trooper2 = new Archer();

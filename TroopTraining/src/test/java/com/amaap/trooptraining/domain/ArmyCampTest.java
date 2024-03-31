@@ -1,7 +1,8 @@
 package com.amaap.trooptraining.domain;
 
 import com.amaap.trooptraining.domain.exceptions.InvalidTrainingCostException;
-import com.amaap.trooptraining.domain.exceptions.InvalideTrainingTimeException;
+import com.amaap.trooptraining.domain.exceptions.InvalidTrainingTimeException;
+import com.amaap.trooptraining.domain.exceptions.InvalidTrooperPropertiesException;
 import com.amaap.trooptraining.domain.model.Archer;
 import com.amaap.trooptraining.domain.model.Barbarian;
 import org.junit.jupiter.api.Assertions;
@@ -11,7 +12,7 @@ import java.util.List;
 
 public class ArmyCampTest {
     @Test
-    void shouldAbleToAddTrooperInArmyCamp() throws InvalideTrainingTimeException, InvalidTrainingCostException {
+    void shouldAbleToAddTrooperInArmyCamp() throws InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrainingTimeException, InvalidTrooperPropertiesException {
         //Arrange
         ArmyCamp armyCamp = new ArmyCamp();
         Trooper trooper = new Barbarian();
@@ -25,7 +26,7 @@ public class ArmyCampTest {
     }
 
     @Test
-    void shouldAbleToGetCountOfArcherAndBarbarian() throws InvalideTrainingTimeException, InvalidTrainingCostException {
+    void shouldAbleToGetCountOfArcherAndBarbarian() throws InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperPropertiesException {
         //Arrange
         ArmyCamp armyCamp = new ArmyCamp();
         Trooper Archer1 = new Archer();

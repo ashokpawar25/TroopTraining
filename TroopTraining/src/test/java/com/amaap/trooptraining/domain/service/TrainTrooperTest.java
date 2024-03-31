@@ -5,7 +5,8 @@ import com.amaap.trooptraining.domain.Barrack;
 import com.amaap.trooptraining.domain.Trooper;
 import com.amaap.trooptraining.domain.exceptions.BarrackOverFlowException;
 import com.amaap.trooptraining.domain.exceptions.InvalidTrainingCostException;
-import com.amaap.trooptraining.domain.exceptions.InvalideTrainingTimeException;
+import com.amaap.trooptraining.domain.exceptions.InvalidTrainingTimeException;
+import com.amaap.trooptraining.domain.exceptions.InvalidTrooperPropertiesException;
 import com.amaap.trooptraining.domain.model.Archer;
 import com.amaap.trooptraining.domain.model.Barbarian;
 import org.junit.jupiter.api.Assertions;
@@ -15,7 +16,7 @@ import java.util.List;
 
 public class TrainTrooperTest {
     @Test
-    void shouldAbleToTrainTroopersFromTheBarrack() throws InvalideTrainingTimeException, InvalidTrainingCostException, BarrackOverFlowException, InterruptedException {
+    void shouldAbleToTrainTroopersFromTheBarrack() throws InvalidTrainingTimeException, InvalidTrainingCostException, BarrackOverFlowException, InterruptedException, InvalidTrooperPropertiesException {
         //Arrange
         Trooper trooper1 = new Archer();
         Trooper trooper2 = new Barbarian();
@@ -35,7 +36,7 @@ public class TrainTrooperTest {
     }
 
     @Test
-    void shouldAbleToSendTrooperInTheArmyCampOnceTrainingCompleted() throws InvalideTrainingTimeException, InvalidTrainingCostException, BarrackOverFlowException, InterruptedException {
+    void shouldAbleToSendTrooperInTheArmyCampOnceTrainingCompleted() throws InvalidTrainingTimeException, InvalidTrainingCostException, BarrackOverFlowException, InterruptedException, InvalidTrooperPropertiesException {
         //Arrange
         Trooper trooper1 = new Archer();
         Trooper trooper2 = new Barbarian();
@@ -57,7 +58,7 @@ public class TrainTrooperTest {
     }
 
     @Test
-    void shouldAbleToGetCountOfArcherAndBarbarianWhoCompletedTrainingAndPresentInArmyCamp() throws InterruptedException, BarrackOverFlowException, InvalideTrainingTimeException, InvalidTrainingCostException {
+    void shouldAbleToGetCountOfArcherAndBarbarianWhoCompletedTrainingAndPresentInArmyCamp() throws InterruptedException, BarrackOverFlowException, InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperPropertiesException {
         //Arrange
         Trooper trooper1 = new Archer();
         Trooper trooper2 = new Barbarian();

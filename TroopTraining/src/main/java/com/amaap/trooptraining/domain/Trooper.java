@@ -1,7 +1,8 @@
 package com.amaap.trooptraining.domain;
 
 import com.amaap.trooptraining.domain.exceptions.InvalidTrainingCostException;
-import com.amaap.trooptraining.domain.exceptions.InvalideTrainingTimeException;
+import com.amaap.trooptraining.domain.exceptions.InvalidTrainingTimeException;
+import com.amaap.trooptraining.domain.exceptions.InvalidTrooperPropertiesException;
 import com.amaap.trooptraining.domain.model.Weapon;
 import com.amaap.trooptraining.domain.validators.TrainingCostValidator;
 import com.amaap.trooptraining.domain.validators.TrainingTimeValidator;
@@ -14,11 +15,12 @@ public class Trooper
     private final int trainingTime;
     private final int trainingCost;
     private final Weapon weapon;
-    public Trooper(int time, int cost, Weapon weapon) throws InvalideTrainingTimeException, InvalidTrainingCostException {
-        if(!TrainingTimeValidator.validateTime(time)) throw new InvalideTrainingTimeException("Invalide training time check it once");
-        if(!TrainingCostValidator.validateCost(cost)) throw new InvalidTrainingCostException("Cost is invalide");
-        this.trainingTime = time;
-        this.trainingCost = cost;
+    public Trooper(int TrainingTime, int TrainingCost, Weapon weapon) throws InvalidTrainingTimeException, InvalidTrainingCostException, InvalidTrooperPropertiesException {
+        if(TrainingCostValidator.validateCost(TrainingCost) && TrainingTimeValidator.validateTime(TrainingTime)) throw new InvalidTrooperPropertiesException("Both Training time and cost are invalid");
+        if(TrainingTimeValidator.validateTime(TrainingTime)) throw new InvalidTrainingTimeException("Invalid training time check it once");
+        if(TrainingCostValidator.validateCost(TrainingCost)) throw new InvalidTrainingCostException("Cost is invalid");
+        this.trainingTime = TrainingTime;
+        this.trainingCost = TrainingCost;
         this.weapon = weapon;
     }
 

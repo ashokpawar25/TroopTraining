@@ -1,5 +1,8 @@
 # TroopTraining
 
+![image](https://github.com/ashokpawar25/TroopTraining/assets/117933840/b1872d62-90f4-42bf-ad8b-93d2fb5ac02b)
+
+
 ##Problem Statement
 
 As a gaming programmer you have to create a simulation software using which gamers can train army troops.
@@ -74,27 +77,27 @@ inputs, for this purpose you may use jUnit or any other testing framework.
 ## Barrack Class
 
 ### States:
-- `private List<Trooper>` **trooperList**
+- `private Queue<Trooper>` **trooperQueue**
 - `private final int` **maxCapacity**
 
 ### Constructor:
 - `public Barrack(int maxCapacity)`
 
 ### Behaviours:
-- `public void` **addTrooper(List<Trooper> troopers) throws BarrackOverFlowException**
-- `public List<Trooper>` **getTrooperList()**
+- `public void` **addTrooper(Queue<Trooper> troopers) throws BarrackOverFlowException**
+- `public Queue<Trooper>` **getTrooperQueue()**
 
 
 ## ArmyCamp Class
 
 ### States:
-- `private List<Trooper>` **trainedTroopers**
+- `private Queue<Trooper>` **trainedTroopers**
 
 ### Constructor:
 - `public ArmyCamp()`
 
 ### Behaviours:
-- `public List<Trooper>` **getTrooperList()**
+- `public Queue<Trooper>` **getTrooperQueue()**
 - `public boolean` **addTrooper(Trooper trooper)**
 - `public int` **getArcherCount()**
 - `public int` **getBarbarianCount()**

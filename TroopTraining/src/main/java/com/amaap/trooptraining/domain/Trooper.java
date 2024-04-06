@@ -30,16 +30,16 @@ public class Trooper
         return trainingCost;
     }
 
+    public Weapon getWeapon()
+    {
+        return weapon;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Trooper trooper = (Trooper) o;
         return trainingTime == trooper.trainingTime && trainingCost == trooper.trainingCost && weapon == trooper.weapon;
-    }
-
-    public Weapon getWeapon()
-    {
-        return weapon;
     }
 }

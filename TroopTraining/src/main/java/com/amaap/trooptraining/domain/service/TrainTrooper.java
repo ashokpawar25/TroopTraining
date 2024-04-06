@@ -23,7 +23,7 @@ public class TrainTrooper
         while (!allTroopers.isEmpty())
         {
             Trooper trooper = allTroopers.poll();
-            Thread.sleep(trooper.getTrainingTime()* 1000L);
+//            Thread.sleep(trooper.getTrainingTime()* 1000L);
             if(trooper instanceof Archer) System.out.println("Archer Trained");
             else System.out.println("Barbarian Trained");
             armyCamp.addTrooper(trooper);
